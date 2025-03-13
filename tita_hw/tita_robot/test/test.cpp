@@ -96,8 +96,8 @@ int main(int argc, char *argv[])
 {
   (void)argc;
   (void)argv;
-  //test_read();
-  test_write();
+  test_read();
+  //test_write();
 
   return 0;
 }
