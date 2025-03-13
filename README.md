@@ -18,8 +18,9 @@
 >>can_sender.hpp ------------------------ 机器人控制方法实现
 >>tita_robot.hpp ------------------------ 机器人SDK通用函数
 ```
-####
-代码编译-
+####使用方法1
+- 直接clone 至 tita os 
+
 ```
 # in tita os environment
 #clone API source code
