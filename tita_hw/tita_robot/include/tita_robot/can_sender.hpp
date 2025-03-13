@@ -1,0 +1,57 @@
+#ifndef MOTORS_CAN_MOTORS_CAN_SEND_API_HPP_
+#define MOTORS_CAN_MOTORS_CAN_SEND_API_HPP_
+
+#include <algorithm>
+#include <atomic>
+#include <iostream>
+#include <map>
+#include <memory>
+#include <sstream>
+#include <string>
+#include <thread>
+#include <utility>
+#include <vector>
+
+#include "tita_robot/def_can.h"
+
+namespace can_device
+{
+
+class MotorsCanSendApi
+{
+public:
+    MotorsCanSendApi(size_t size)
+    {
+        if (size %8 == 0 )
+            leg_dof_= 4;
+        
+        else if (size % 6 == 0)
+            leg_dof_ = 3;
+        leg_num_ = size/leg_dof_;
+    }
+    ~MotorsCanSendApi() = default;
+    bool send_motors_can(std::vector<api_motor_out_t>motors);
+    bool send_command_can_channel_input(api_channel_input_t data);
+    bool send_command_can_rpc_request(api_rpc_response_t data);
+private:
+#define MIN_TIME_OUT_US 1'000L      // 1ms
+#define MAX_TIME_OUT_US 3'000'000L  // 3s
+  std::string can_interface = "can0";
+  std::string can_name = "motors_can_send";
+  int64_t timeout_us = MAX_TIME_OUT_US;
+  uint8_t can_id_offset = 0x00U;
+  bool can_extended_frame = false;
+  bool can_fd_mode = true;
+ std::shared_ptr<can_device::socket_can::CanDev> can_send_api_ =
+    std::make_shared<can_device::socket_can::CanDev>(
+      can_interface, can_name, can_extended_frame, can_fd_mode, timeout_us, can_id_offset);
+  size_t leg_dof_{4}, leg_num_{2};
+
+
+
+
+};
+
+}// namespace can_device
+
+#endif // MOTORS_CAN_MOTORS_CAN_API_HPP_
