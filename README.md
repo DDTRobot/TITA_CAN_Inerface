@@ -6,8 +6,9 @@
 
 #### 硬件要求
 
-- Ubuntu22.04电脑 （==20.04上socketcan驱动暂不支持canfd协议！==）
+- 使用Ubuntu22.04开发主机电脑 （==20.04上socketcan驱动暂不支持canfd协议！==）
 - usb2canfd
+- 或者使用TITA内置 Jetson Orin NX 来控制 TITA 运动，无需安装 ROS 、 ROS2 和 usb2candf
 
 
 ### TITA Robot 机器人SDK通用函数
@@ -22,12 +23,13 @@
 >>
 >> tita_robot.hpp ------------------------ 机器人SDK通用函数
 
-#### 使用方法1
+#### 快速使用
 - 直接clone 至 tita os 
 
 ```
 # in tita os environment
 #clone API source code
+git clone https://github.com/DDTRobot/TITA_CAN_Inerface.git
 cd tita_robot
 mkdir build
 cd build
@@ -37,7 +39,7 @@ make
 ```
 
 
-#### 使用方法2
+#### 在Ubuntu22.04开发主机使用方法
 
 - 正确的电气连接（当usb2canfd通过usb-a连接到电脑后可以被时别为`can`设备,可通过`ip link show`来查看是否存在，
 
