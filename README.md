@@ -1,7 +1,7 @@
 #### 实现功能
-- [x]读取TITA上传的电机，IMU数据,joint motor status数据
-- [X]利用SDK控制电机
-- [X]利用SDK控制TITA站立和运动
+- 读取TITA上传的电机，IMU数据,joint motor status数据
+- 利用SDK控制电机
+- 利用SDK控制TITA站立和运动
 
 
 #### 硬件要求
@@ -10,15 +10,19 @@
 - usb2canfd
 
 
-###TITA Robot 机器人SDK通用函数
-```
->tita_robot
->>def_can.h------------------------------>通讯协议结构体定义
->>can_receive.hpp ----------------------- 读取can数据解包实现
->>can_sender.hpp ------------------------ 机器人控制方法实现
->>tita_robot.hpp ------------------------ 机器人SDK通用函数
-```
-####使用方法1
+### TITA Robot 机器人SDK通用函数
+
+> tita_robot
+>>
+>> def_can.h------------------------------>通讯协议结构体定义
+>>
+>> can_receive.hpp ----------------------- 读取can数据解包实现
+>>
+>> can_sender.hpp ------------------------ 机器人控制方法实现
+>>
+>> tita_robot.hpp ------------------------ 机器人SDK通用函数
+
+#### 使用方法1
 - 直接clone 至 tita os 
 
 ```
