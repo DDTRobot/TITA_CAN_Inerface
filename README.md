@@ -5,10 +5,12 @@
 
 
 #### 硬件要求
-
+使用PC进行控制：
 - Ubuntu22.04电脑 （==20.04上socketcan驱动暂不支持canfd协议！==）
 - usb2canfd
-
+- 
+使用TITA内置Orin NX :
+无需准备额外硬件。
 
 ### TITA Robot 机器人SDK通用函数
 
